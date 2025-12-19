@@ -1,4 +1,5 @@
 import React from "react";
+import { ContactForm } from './ContactForm';
 
 // 章タイトル
 const chapters = [
@@ -59,7 +60,9 @@ export function MainContent({ progress, setProgress }) {
                     ))}
                 </ul>
             </section>
+
+            {/* お問い合わせフォームを表示 */}
+            <ContactForm />
         </main>
     );
 }
-
