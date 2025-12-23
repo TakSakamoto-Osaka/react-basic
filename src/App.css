@@ -49,3 +49,13 @@ button {
 button:hover {
   background-color: darkgreen; /* 背景色変更 */
 }
+
+.light {
+  background-color: white;
+  color: black;
+}
+
+.dark {
+  background-color: black;
+  color: white;
+}

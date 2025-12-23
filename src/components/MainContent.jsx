@@ -1,6 +1,8 @@
 import React from "react";
 import { ContactForm } from './ContactForm';
 import { Quiz } from "./Quiz";
+import { useContext } from "react";
+import { ThemeContext } from "./ThemeProvider";
 
 // 章タイトル
 const chapters = [
@@ -28,6 +30,8 @@ const chapters = [
 const chapterKes = chapters.map(() => crypto.randomUUID());
 
 export function MainContent({ progress, setProgress }) {
+    const { theme, toggleTheme } = useContext(ThemeContext);
+
     const handleProgress = () => {
         if ( progress < 100 ) {
             setProgress(progress + 10);
@@ -35,12 +39,13 @@ export function MainContent({ progress, setProgress }) {
     };
 
     return(
-        <main>
+        <main className={theme === "dark" ? "dark" : "light"}>
             <section>
                 <h2>本教材について</h2>
                 <p>本教材では、Reactの基本的な文法や概念を実践的に学びます。</p>
                 <p>各章で段階的に実装を進め、Reactアプリを作っていきます。</p>
                 <p>本教材を通して、Reactの基本をしっかりと身につけましょう。</p>
+                <button onClick={toggleTheme}>テーマ切り替え</button>
             </section>
 
             <section>
